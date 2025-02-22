@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Test cargo-binstall on (private) crate
+name: Test cargo-binstall on crate
 
 # Controls when the workflow will run
 on:
@@ -20,7 +20,7 @@ permissions:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # Test using cargo-binstall to install a Rust crate from a (maybe private) repository
+  # Test using cargo-binstall to install a Rust crate from a repository
   test-binstall:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -34,8 +34,6 @@ jobs:
       # Install HCML
       - name: Install HCML
         run: cargo binstall --git="https://github.com/abclop99/hcml" hcml
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Run HCML to prove it exists and works
       - name: Run HCML
