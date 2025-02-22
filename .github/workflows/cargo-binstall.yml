@@ -34,6 +34,8 @@ jobs:
       # Install HCML
       - name: Install HCML
         run: cargo binstall --git="https://github.com/abclop99/hcml" hcml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Run HCML to prove it exists and works
       - name: Run HCML
